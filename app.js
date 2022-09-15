@@ -9,7 +9,10 @@ const app = express();
 const db=require('./util/database')
 
 
-db.execute('select * from products')
+db.execute('select * from products').then(
+    result=>{console.log(result[0])}).catch(err=>{
+    console.log(err)
+})
 
 
 app.set('view engine', 'ejs');
